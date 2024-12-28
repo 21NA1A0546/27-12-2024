@@ -49,7 +49,6 @@ def get_weather_data(place):
         intervals = data['data']['timelines'][0]['intervals']  # Adjust as per the actual response structure
         weather_data = {
             'place': place,
-            'intervals': intervals,
             'temperature': intervals[0]['values']['temperature'],
             'temperatureApparent': intervals[0]['values']['temperatureApparent'],
             'pressureSurfaceLevel': intervals[0]['values']['pressureSurfaceLevel'],
@@ -65,3 +64,17 @@ def get_weather_data(place):
     except requests.exceptions.RequestException as e:
         logger.error(f"Request failed: {e}")
         return None, 'Failed to retrieve weather data. Please try again.'
+
+def compare(request):
+    if request.method == 'POST':
+        num_places = int(request.POST.get('num_places', 1))
+        places = [request.POST.get(f'place_{i+1}') for i in range(num_places)]
+        weather_data_list = []
+        for place in places:
+            weather_data, error_message = get_weather_data(place)
+            if weather_data:
+                weather_data_list.append(weather_data)
+            else:
+                weather_data_list.append({'place': place, 'error': error_message})
+        return render(request, 'compare.html', {'weather_data_list': weather_data_list, 'num_places': num_places})
+    return render(request, 'compare.html')
