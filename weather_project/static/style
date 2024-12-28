@@ -1,0 +1,53 @@
+/* weather_project/static/style.css */
+
+body {
+    font-family: Arial, sans-serif;
+    font-size: 18px;  // Increased font size for better readability
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+}
+
+h1 {
+    font-size: 36px;  // Increased font size for the heading
+    color: #333;
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+input[type="text"] {
+    padding: 10px;
+    width: 300px;  // Increased width for the search bar
+    font-size: 18px;  // Increased font size for the search bar
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;  // Increased font size for the button
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin: 10px 0;
+    font-size: 18px;  // Increased font size for list items
+}
