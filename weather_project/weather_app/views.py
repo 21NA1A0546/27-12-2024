@@ -67,7 +67,7 @@ def get_weather_data(place):
 
 def compare(request):
     if request.method == 'POST':
-        num_places = int(request.POST.get('num_places', 1))
+        num_places = int(request.POST.get('num_places', 2))
         places = [request.POST.get(f'place_{i+1}') for i in range(num_places)]
         weather_data_list = []
         for place in places:
@@ -76,5 +76,6 @@ def compare(request):
                 weather_data_list.append(weather_data)
             else:
                 weather_data_list.append({'place': place, 'error': error_message})
+        
         return render(request, 'compare.html', {'weather_data_list': weather_data_list, 'num_places': num_places})
     return render(request, 'compare.html')

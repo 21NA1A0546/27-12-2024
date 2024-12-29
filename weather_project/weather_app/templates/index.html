@@ -14,7 +14,7 @@
             <input type="text" name="place" placeholder="Enter place name" required>
             <button type="submit">Get Weather</button>
         </form>
-        <a href="{% url 'compare' %}" class="compare-button">Compare</a>  <!-- Ensure this line is correct -->
+        <a href="{% url 'compare' %}" class="compare-button">Compare</a>
 
         {% if error_message %}
             <p>{{ error_message }}</p>

@@ -24,14 +24,19 @@
             {% csrf_token %}
             <label for="num_places">Select number of places to compare:</label>
             <select id="num_places" name="num_places" onchange="updatePlaceFields()">
-                <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
                 <option value="4">4</option>
                 <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
             </select>
             <div id="place_fields">
                 <input type="text" name="place_1" placeholder="Enter place name" required><br>
+                <input type="text" name="place_2" placeholder="Enter place name" required><br>
             </div>
             <button type="submit">Compare</button>
         </form>
